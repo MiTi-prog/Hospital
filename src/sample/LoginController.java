@@ -47,6 +47,7 @@ public class LoginController implements Initializable {
     private ImageView lockimageView;
 
 
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         File brandingFile = new File("Files/2762370.png");
@@ -90,6 +91,15 @@ public class LoginController implements Initializable {
                 if(queryResult.getInt(1)==1){
                     loginMessageLabble.setText("Congrats!");
                     //createAccountForm();
+
+                    Parent root = FXMLLoader.load(getClass().getResource("Home.fxml"));
+                    root.getStylesheets().add("sample/style.css");
+                    Stage dashBoard = new Stage();
+                    dashBoard.setScene(new Scene(root));
+                    //set stage borderless
+                    dashBoard.initStyle(StageStyle.UNDECORATED);
+                    dashBoard.show();
+
                 }else {
                     loginMessageLabble.setText("Invalid Login. Please try Again!");
                 }
@@ -108,7 +118,7 @@ public class LoginController implements Initializable {
 
             Parent root = FXMLLoader.load(getClass().getResource("register.fxml"));
             Stage registerStage = new Stage();
-            registerStage.setTitle("Hospital Assistant");
+            //registerStage.setTitle("Hospital Assistant");
             registerStage.initStyle(StageStyle.UNDECORATED);
             registerStage.setScene(new Scene(root, 800, 500));
             registerStage.show();

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="768" prefWidth="1024.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Home">
+    <children>
+        <AnchorPane prefHeight="75.0" prefWidth="1025.0" style="-fx-background-color: #0598ff;">
+            <children>
+                <ImageView fx:id="shieldImageView" fitHeight="53.0" fitWidth="69.0" layoutX="14.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@../../Files/icons8-login-as-user-90.png" />
+                    </image>
+                </ImageView>
+                <Text fill="#f8f8f8" layoutX="79.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Home">
+                    <font>
+                        <Font size="24.0" />
+                    </font>
+                </Text>
+            </children>
+        </AnchorPane>
+        <Label fx:id="registrationMessageLabel" alignment="CENTER" layoutX="1.0" layoutY="82.0" prefHeight="17.0" prefWidth="800.0" textAlignment="CENTER" textFill="#0598ff">
+            <font>
+                <Font size="13.0" />
+            </font>
+        </Label>
+        <Label fx:id="ConfirmPasswordMessageLabel1" alignment="CENTER" layoutX="425.0" layoutY="377.0" prefHeight="19.0" prefWidth="260.0" textAlignment="RIGHT" textFill="#ff2b05">
+            <font>
+                <Font size="13.0" />
+            </font>
+        </Label>
+      <TabPane fx:id="tabPane" layoutX="1.0" layoutY="75.0" prefHeight="621.0" prefWidth="1024.0" stylesheets="@style.css" tabClosingPolicy="UNAVAILABLE">
+        <tabs>
+          <Tab text="Untitled Tab 1">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="605.0" prefWidth="1025.0" />
+            </content>
+          </Tab>
+          <Tab text="Untitled Tab 2">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+            </content>
+          </Tab>
+        </tabs>
+      </TabPane>
+    </children>
+</AnchorPane>
