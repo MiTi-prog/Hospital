@@ -1,27 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.DatePicker?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.Tab?>
-<?import javafx.scene.control.TabPane?>
-<?import javafx.scene.control.TableColumn?>
-<?import javafx.scene.control.TableView?>
-<?import javafx.scene.control.TextArea?>
-<?import javafx.scene.control.TextField?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.BorderPane?>
-<?import javafx.scene.layout.ColumnConstraints?>
-<?import javafx.scene.layout.GridPane?>
-<?import javafx.scene.layout.RowConstraints?>
-<?import javafx.scene.layout.VBox?>
-<?import javafx.scene.text.Font?>
-<?import javafx.scene.text.Text?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Home">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Home">
    <top>
       <AnchorPane style="-fx-background-color: #0598ff;" BorderPane.alignment="CENTER">
          <children>
@@ -438,7 +423,7 @@
                                           <Insets bottom="50.0" left="20.0" />
                                        </GridPane.margin>
                                     </Button>
-                                    <Label fx:id="pacientDodan" alignment="CENTER" prefHeight="17.0" prefWidth="428.0" text="Congrats" textAlignment="CENTER" textFill="#0ef002" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                    <Label fx:id="pacientDodan" alignment="CENTER" prefHeight="17.0" prefWidth="428.0" textAlignment="CENTER" textFill="#0ef002" GridPane.columnIndex="1" GridPane.rowIndex="1">
                                        <font>
                                           <Font size="13.0" />
                                        </font>
@@ -456,8 +441,9 @@
                      <children>
                         <BorderPane prefHeight="569.0" prefWidth="900.0" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="10.0">
                            <center>
-                              <TableView prefHeight="531.0" prefWidth="900.0" BorderPane.alignment="CENTER">
+                              <TableView fx:id="table" prefHeight="531.0" prefWidth="900.0" BorderPane.alignment="CENTER">
                                 <columns>
+                                    <TableColumn fx:id="tabID" prefWidth="123.0" text="id" />
                                   <TableColumn fx:id="tabIme" prefWidth="123.0" text="IME" />
                                   <TableColumn fx:id="tabPriimek" prefWidth="132.0" text="PRIIMEK" />
                                     <TableColumn fx:id="tabStarost" text="STAROST" />
