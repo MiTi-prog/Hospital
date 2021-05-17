@@ -6,13 +6,13 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Home">
    <top>
       <AnchorPane style="-fx-background-color: #0598ff;" BorderPane.alignment="CENTER">
          <children>
             <ImageView fitHeight="53.0" fitWidth="69.0" layoutX="14.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="10.0" AnchorPane.topAnchor="10.0">
                <image>
-                  <Image url="@../../Files/icons8-login-as-user-90.png" />
+                  <Image url="@../Icons/doctor.png" />
                </image>
             </ImageView>
             <Text fill="#f8f8f8" layoutX="80.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Pozdravljeni!">
@@ -24,7 +24,7 @@
       </AnchorPane>
    </top>
    <center>
-      <TabPane tabClosingPolicy="UNAVAILABLE" BorderPane.alignment="CENTER">
+      <TabPane style="-fx-background-color: white;" tabClosingPolicy="UNAVAILABLE" BorderPane.alignment="CENTER">
         <tabs>
           <Tab text="Podatki o pregledu">
             <content>
@@ -413,7 +413,7 @@
                                           <Font size="24.0" />
                                        </font>
                                     </Text>
-                                    <Button mnemonicParsing="false" onAction="#dodajPacienta" prefHeight="30.0" prefWidth="146.0" style="-fx-background-color: #0598ff;" text="DODAJ" GridPane.rowIndex="6">
+                                    <Button mnemonicParsing="false" onAction="#dodajPacienta" prefHeight="30.0" prefWidth="146.0" style="-fx-background-color: #0598ff; -fx-text-fill: #ffffff;" text="DODAJ" GridPane.rowIndex="6">
                                        <GridPane.margin>
                                           <Insets bottom="50.0" left="20.0" />
                                        </GridPane.margin>
@@ -433,13 +433,13 @@
                            <center>
                               <TableView prefHeight="531.0" prefWidth="900.0" BorderPane.alignment="CENTER">
                                 <columns>
-                                  <TableColumn prefWidth="144.0" text="IME" />
-                                  <TableColumn prefWidth="142.0" text="PRIIMEK" />
-                                    <TableColumn prefWidth="81.0" text="STAROST" />
-                                    <TableColumn prefWidth="82.0" text="SPOL" />
-                                    <TableColumn prefWidth="137.0" text="EMAIL" />
-                                    <TableColumn prefWidth="125.0" text="NASLOV" />
-                                    <TableColumn prefWidth="188.0" text="ZDRAVSTVENA KARTICA" />
+                                  <TableColumn fx:id="tabIme" prefWidth="123.0" text="IME" />
+                                  <TableColumn fx:id="tabPriimek" prefWidth="132.0" text="PRIIMEK" />
+                                    <TableColumn fx:id="tabStarost" text="STAROST" />
+                                    <TableColumn fx:id="tabSpol" prefWidth="84.0" text="SPOL" />
+                                    <TableColumn fx:id="tabEmail" prefWidth="145.0" text="EMAIL" />
+                                    <TableColumn fx:id="tabNaslov" prefWidth="150.0" text="NASLOV" />
+                                    <TableColumn fx:id="tabKartica" prefWidth="155.0" text="ZDRAVSTVENA KARTICA" />
                                 </columns>
                                  <BorderPane.margin>
                                     <Insets />
@@ -457,32 +457,20 @@
    <right>
       <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
          <children>
-            <Button contentDisplay="TOP" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" prefHeight="92.0" prefWidth="129.0" style="-fx-background-color: #0598ff; -fx-text-fill: #ffffff;" text="PONASTAVI">
+            <Button contentDisplay="TOP" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#resetCB" prefHeight="92.0" prefWidth="129.0" style="-fx-background-color: #0598ff; -fx-text-fill: #ffffff;" text="PONASTAVI">
                <graphic>
                   <ImageView fitHeight="53.0" fitWidth="69.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../../Files/icons8-login-as-user-90.png" />
+                        <Image url="@../Icons/reset.png" />
                      </image>
                   </ImageView>
                </graphic>
             </Button>
-            <Button contentDisplay="TOP" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" prefHeight="92.0" prefWidth="129.0" style="-fx-background-color: #0598ff; -fx-text-fill: #ffffff;" text="SHRANI">
+            <Button contentDisplay="TOP" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#saveCB" prefHeight="92.0" prefWidth="129.0" style="-fx-background-color: #0598ff; -fx-text-fill: #ffffff;" text="SHRANI">
                <graphic>
                   <ImageView fitHeight="53.0" fitWidth="69.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../../Files/icons8-login-as-user-90.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
-               <VBox.margin>
-                  <Insets top="15.0" />
-               </VBox.margin>
-            </Button>
-            <Button contentDisplay="TOP" layoutX="10.0" layoutY="155.0" mnemonicParsing="false" prefHeight="92.0" prefWidth="129.0" style="-fx-background-color: #0598ff; -fx-text-fill: #ffffff;" text="IZHOD">
-               <graphic>
-                  <ImageView fitHeight="53.0" fitWidth="69.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../../Files/icons8-login-as-user-90.png" />
+                        <Image url="@../Icons/save.png" />
                      </image>
                   </ImageView>
                </graphic>
@@ -490,11 +478,23 @@
                   <Insets top="15.0" />
                </VBox.margin>
             </Button>
-            <Button contentDisplay="TOP" layoutX="10.0" layoutY="63.0" mnemonicParsing="false" prefHeight="92.0" prefWidth="129.0" style="-fx-background-color: #0598ff; -fx-text-fill: #ffffff;" text="ODJAVA">
+            <Button contentDisplay="TOP" layoutX="10.0" layoutY="155.0" mnemonicParsing="false" onAction="#exitCB" prefHeight="92.0" prefWidth="129.0" style="-fx-background-color: #0598ff; -fx-text-fill: #ffffff;" text="IZHOD">
                <graphic>
                   <ImageView fitHeight="53.0" fitWidth="69.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../../Files/icons8-login-as-user-90.png" />
+                        <Image url="@../Icons/exit.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <VBox.margin>
+                  <Insets top="15.0" />
+               </VBox.margin>
+            </Button>
+            <Button contentDisplay="TOP" layoutX="10.0" layoutY="63.0" mnemonicParsing="false" onAction="#outCB" prefHeight="92.0" prefWidth="129.0" style="-fx-background-color: #0598ff; -fx-text-fill: #ffffff;" text="ODJAVA">
+               <graphic>
+                  <ImageView fitHeight="53.0" fitWidth="69.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../Icons/logout.png" />
                      </image>
                   </ImageView>
                </graphic>
