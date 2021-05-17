@@ -12,7 +12,7 @@
          <children>
             <ImageView fitHeight="53.0" fitWidth="69.0" layoutX="14.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="10.0" AnchorPane.topAnchor="10.0">
                <image>
-                  <Image url="@../../Files/icons8-login-as-user-90.png" />
+                  <Image url="@../Icons/doctor.png" />
                </image>
             </ImageView>
             <Text fill="#f8f8f8" layoutX="80.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Pozdravljeni!">
@@ -24,7 +24,7 @@
       </AnchorPane>
    </top>
    <center>
-      <TabPane tabClosingPolicy="UNAVAILABLE" BorderPane.alignment="CENTER">
+      <TabPane style="-fx-background-color: white;" tabClosingPolicy="UNAVAILABLE" BorderPane.alignment="CENTER">
         <tabs>
           <Tab text="Podatki o pregledu">
             <content>
@@ -461,7 +461,7 @@
                <graphic>
                   <ImageView fitHeight="53.0" fitWidth="69.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../../Files/icons8-login-as-user-90.png" />
+                        <Image url="@../Icons/reset.png" />
                      </image>
                   </ImageView>
                </graphic>
@@ -470,7 +470,7 @@
                <graphic>
                   <ImageView fitHeight="53.0" fitWidth="69.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../../Files/icons8-login-as-user-90.png" />
+                        <Image url="@../Icons/save.png" />
                      </image>
                   </ImageView>
                </graphic>
@@ -482,7 +482,7 @@
                <graphic>
                   <ImageView fitHeight="53.0" fitWidth="69.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../../Files/icons8-login-as-user-90.png" />
+                        <Image url="@../Icons/exit.png" />
                      </image>
                   </ImageView>
                </graphic>
@@ -494,7 +494,7 @@
                <graphic>
                   <ImageView fitHeight="53.0" fitWidth="69.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../../Files/icons8-login-as-user-90.png" />
+                        <Image url="@../Icons/logout.png" />
                      </image>
                   </ImageView>
                </graphic>
