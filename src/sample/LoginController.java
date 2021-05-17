@@ -29,6 +29,8 @@ import java.util.ResourceBundle;
 
 public class LoginController implements Initializable {
 
+    public static String userLog=""; // tuk sam da vemo kdo se je prjavu not ker user
+
     @FXML
     private TextField usernameTextField;
     @FXML
@@ -45,8 +47,6 @@ public class LoginController implements Initializable {
     private ImageView brandingImageView;
     @FXML
     private ImageView lockimageView;
-
-
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -91,6 +91,7 @@ public class LoginController implements Initializable {
                 if(queryResult.getInt(1)==1){
                     loginMessageLabble.setText("Congrats!");
                     //createAccountForm();
+                    userLog = usernameTextField.getText();
 
                     Parent root = FXMLLoader.load(getClass().getResource("Home.fxml"));
                     root.getStylesheets().add("sample/style.css");
