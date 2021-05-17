@@ -58,6 +58,7 @@ public class Home implements Initializable {
     public TextField zdravstvena;
 
     public Label pacientDodan;
+    public Label pregledDodan;
 
     @FXML
     private Button odjavaButton;
@@ -95,6 +96,7 @@ public class Home implements Initializable {
         //System.out.println(useridName); // Username tega tipa ko se je prjavu
 
         int iDUsserja=1;
+
         try{
 
             Statement statement1 = connectDB.createStatement();
@@ -130,7 +132,36 @@ public class Home implements Initializable {
 
     public void saveCB(ActionEvent actionEvent) {
 
-        // tu pa je potrebbno naredit povezavo na bazo za pregled pa vnos podatkov
+
+        DatabaseConnection connectNow = new DatabaseConnection();
+        Connection connectDB = connectNow.getConnection();
+
+        String idPacient = pacientID.getText();
+        String pulz = srcniUtrip.getText();
+        String kisikVKrvi = kisik.getText();
+        String pritiskPacient = pritisk.getText();
+        String ugotovljenaDiagnoza = diagnoza.getText();
+        String predpisanoZdravilo = zdravilo.getText();
+        String datum = datumPregleda.getEditor().getText();
+
+
+        try{
+
+            String inserFields = "INSERT INTO `pregled` (`diagnoza`, `srcni_utrip`, `pritisk`, `kisik_v_krvi`, `zdravilo`, `datum_naslednjega_pregleda`, `pacient_id`) VALUES('";
+            String insertValues = ugotovljenaDiagnoza + "','" + pulz + "','" + pritiskPacient +  "','" +kisikVKrvi + "','" + predpisanoZdravilo + "','" + datum+ "','" + idPacient + "')";
+            String insertPacient = inserFields + insertValues;
+
+            Statement statement2 = connectDB.createStatement();
+            statement2.executeUpdate(insertPacient);
+
+            pregledDodan.setText("Podatki pregleda uspešno dodani!");
+
+        }catch (Exception e){
+            e.printStackTrace();
+            e.getCause();
+
+        }
+
 
     }
 
