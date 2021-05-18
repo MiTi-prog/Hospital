@@ -10,13 +10,17 @@ import javafx.stage.StageStyle;
 public class Main extends Application {
 
 
+    public static Stage mainLoginStage;
+
     @Override
         public void start(Stage primaryStage) throws Exception{
             Parent root = FXMLLoader.load(getClass().getResource("login.fxml"));
             //primaryStage.setTitle("Hospital Assistant");
-            primaryStage.initStyle(StageStyle.UNDECORATED);
-            primaryStage.setScene(new Scene(root, 800, 500));
-            primaryStage.show();
+            mainLoginStage = primaryStage;
+            //mainLoginStage.initStyle(StageStyle.UNDECORATED);
+            mainLoginStage.setResizable(false);
+            mainLoginStage.setScene(new Scene(root, 800, 500));
+            mainLoginStage.show();
         }
 
         public static void main(String[] args) {

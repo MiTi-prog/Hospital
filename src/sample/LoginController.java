@@ -48,6 +48,10 @@ public class LoginController implements Initializable {
     @FXML
     private ImageView lockimageView;
 
+
+    public static Stage mainRegistrationStage = new Stage();
+    public static Stage dashBoard = new Stage();
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         File brandingFile = new File("Files/2762370.png");
@@ -95,7 +99,6 @@ public class LoginController implements Initializable {
 
                     Parent root = FXMLLoader.load(getClass().getResource("Home.fxml"));
                     root.getStylesheets().add("sample/style.css");
-                    Stage dashBoard = new Stage();
                     dashBoard.setScene(new Scene(root));
                     //set stage borderless
                     dashBoard.initStyle(StageStyle.UNDECORATED);
@@ -116,13 +119,15 @@ public class LoginController implements Initializable {
     public void createAccountForm(){
 
         try{
-
             Parent root = FXMLLoader.load(getClass().getResource("register.fxml"));
             Stage registerStage = new Stage();
             //registerStage.setTitle("Hospital Assistant");
-            registerStage.initStyle(StageStyle.UNDECORATED);
-            registerStage.setScene(new Scene(root, 800, 500));
-            registerStage.show();
+            mainRegistrationStage.close();
+            //mainRegistrationStage.initStyle(StageStyle.UNDECORATED); //to jee problem biu
+            mainRegistrationStage.setResizable(false);
+            mainRegistrationStage.setScene(new Scene(root, 800, 500));
+            mainRegistrationStage.show();
+            Main.mainLoginStage.close();
 
         }catch (Exception e){
             e.printStackTrace();
