@@ -28,6 +28,9 @@ import java.util.ResourceBundle;
 
 public class LoginController implements Initializable {
 
+    public static Stage mainRegistrationStage = new Stage();
+    public static Stage dashBoard = new Stage();
+
     public static String userLog=""; // tuk sam da vemo kdo se je prjavu not ker user
 
     @FXML
@@ -91,13 +94,13 @@ public class LoginController implements Initializable {
                     loginMessageLabble.setText("Congrats!");
                     //createAccountForm();
                     userLog = usernameTextField.getText();
-
+                    dashBoard.close();
                     Parent root = FXMLLoader.load(getClass().getResource("Home.fxml"));
                     root.getStylesheets().add("sample/style.css");
-                    Stage dashBoard = new Stage();
                     dashBoard.setScene(new Scene(root));
                     //set stage borderless
-                    dashBoard.initStyle(StageStyle.UNDECORATED);
+                    Main.mainLoginStage.close();
+                    dashBoard.setResizable(false);
                     dashBoard.show();
 
                 }else {
@@ -117,11 +120,13 @@ public class LoginController implements Initializable {
         try{
 
             Parent root = FXMLLoader.load(getClass().getResource("register.fxml"));
-            Stage registerStage = new Stage();
-            //registerStage.setTitle("Hospital Assistant");
-            registerStage.initStyle(StageStyle.UNDECORATED);
-            registerStage.setScene(new Scene(root, 800, 500));
-            registerStage.show();
+
+            mainRegistrationStage.close();
+            //mainRegistrationStage.initStyle(StageStyle.UNDECORATED); //to jee problem biu
+            mainRegistrationStage.setResizable(false);
+            mainRegistrationStage.setScene(new Scene(root, 800, 500));
+            mainRegistrationStage.show();
+            Main.mainLoginStage.close();
 
         }catch (Exception e){
             e.printStackTrace();

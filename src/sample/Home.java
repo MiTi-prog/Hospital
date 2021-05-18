@@ -3,14 +3,16 @@ package sample;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
-import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
+import javafx.fxml.*;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
 import java.io.File;
+import java.io.IOException;
 import java.net.URL;
 import java.util.PropertyPermission;
 import java.util.ResourceBundle;
@@ -23,6 +25,10 @@ import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
+
+import javafx.fxml.*;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 
 import java.io.File;
 import java.net.URL;
@@ -237,9 +243,15 @@ public class Home implements Initializable {
         System.exit(0);
     }
 
-    public void outCB(ActionEvent actionEvent) {
-        Stage stage = (Stage) odjavaButton.getScene().getWindow();
-        stage.close();
+    public void outCB(ActionEvent actionEvent) throws IOException {
+
+        Parent root = FXMLLoader.load(getClass().getResource("login.fxml"));
+        //Platform.exit();
+
+        LoginController.dashBoard.close();
+        Main.mainLoginStage.setResizable(false);
+        Main.mainLoginStage.setScene(new Scene(root, 800, 500));
+        Main.mainLoginStage.show();
         //Platform.exit();
     }
 
