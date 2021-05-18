@@ -101,6 +101,7 @@ public class LoginController implements Initializable {
                     root.getStylesheets().add("sample/style.css");
                     dashBoard.setScene(new Scene(root));
                     //set stage borderless
+                    Main.mainLoginStage.close();
                     dashBoard.initStyle(StageStyle.UNDECORATED);
                     dashBoard.show();
 
@@ -123,11 +124,12 @@ public class LoginController implements Initializable {
             Stage registerStage = new Stage();
             //registerStage.setTitle("Hospital Assistant");
             mainRegistrationStage.close();
+            Main.mainLoginStage.close();
             //mainRegistrationStage.initStyle(StageStyle.UNDECORATED); //to jee problem biu
             mainRegistrationStage.setResizable(false);
             mainRegistrationStage.setScene(new Scene(root, 800, 500));
             mainRegistrationStage.show();
-            Main.mainLoginStage.close();
+
 
         }catch (Exception e){
             e.printStackTrace();
