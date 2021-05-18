@@ -3,16 +3,14 @@ package sample;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
-import javafx.fxml.*;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
+import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
 import java.io.File;
-import java.io.IOException;
 import java.net.URL;
 import java.util.PropertyPermission;
 import java.util.ResourceBundle;
@@ -113,9 +111,9 @@ public class Home implements Initializable {
 
             while (rs.next()){
                 oblist.add(new Pacient(rs.getString("pacient_id"), rs.getString("pacient_ime"),
-                            rs.getString("pacient_priimek"), rs.getString("pacient_starost"),
-                            rs.getString("pacient_spol"), rs.getString("pacient_email"),
-                            rs.getString("pacient_naslov"), rs.getString("pacient_st_kartice")));
+                        rs.getString("pacient_priimek"), rs.getString("pacient_starost"),
+                        rs.getString("pacient_spol"), rs.getString("pacient_email"),
+                        rs.getString("pacient_naslov"), rs.getString("pacient_st_kartice")));
 
             }
 
@@ -185,14 +183,24 @@ public class Home implements Initializable {
     }
 
     public void resetCB(ActionEvent actionEvent) {
-
         // tu je treba vse TextFielde dat na nula torej ustvari pacienta pa v prelged
-
+        pacientID.clear();
+        kisik.clear();
+        srcniUtrip.clear();
+        pritisk.clear();
+        diagnoza.clear();
+        zdravilo.clear();
+        ime.clear();
+        priimek.clear();
+        starost.clear();
+        spol.clear();
+        email.clear();
+        naslov.clear();
+        zdravstvena.clear();
+        datumPregleda.getEditor().clear();
     }
 
     public void saveCB(ActionEvent actionEvent) {
-
-
         DatabaseConnection connectNow = new DatabaseConnection();
         Connection connectDB = connectNow.getConnection();
 
@@ -219,25 +227,17 @@ public class Home implements Initializable {
         }catch (Exception e){
             e.printStackTrace();
             e.getCause();
-
         }
-
     }
 
     public void exitCB(ActionEvent actionEvent) {
         System.exit(0);
     }
 
-    public void outCB(ActionEvent actionEvent) throws IOException {
-
-        Parent root = FXMLLoader.load(getClass().getResource("login.fxml"));
+    public void outCB(ActionEvent actionEvent) {
+        Stage stage = (Stage) odjavaButton.getScene().getWindow();
+        stage.close();
         //Platform.exit();
-
-        LoginController.dashBoard.close();
-        Main.mainLoginStage.setResizable(false);
-        Main.mainLoginStage.setScene(new Scene(root, 800, 500));
-        Main.mainLoginStage.show();
-
     }
 
 }

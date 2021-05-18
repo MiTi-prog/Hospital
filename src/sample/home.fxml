@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Home">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Home">
    <top>
       <AnchorPane style="-fx-background-color: #0598ff;" BorderPane.alignment="CENTER">
          <children>
@@ -423,7 +423,7 @@
                                           <Insets bottom="50.0" left="20.0" />
                                        </GridPane.margin>
                                     </Button>
-                                    <Label fx:id="pacientDodan" alignment="CENTER" prefHeight="17.0" prefWidth="428.0" textAlignment="CENTER" textFill="#0ef002" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                    <Label fx:id="pacientDodan" prefHeight="17.0" prefWidth="428.0" textAlignment="CENTER" textFill="#0ef002" GridPane.rowIndex="6" GridPane.valignment="BOTTOM">
                                        <font>
                                           <Font size="13.0" />
                                        </font>
@@ -443,14 +443,14 @@
                            <center>
                               <TableView fx:id="table" prefHeight="531.0" prefWidth="900.0" BorderPane.alignment="CENTER">
                                 <columns>
-                                    <TableColumn fx:id="tabID" prefWidth="123.0" text="id" />
-                                  <TableColumn fx:id="tabIme" prefWidth="123.0" text="IME" />
-                                  <TableColumn fx:id="tabPriimek" prefWidth="132.0" text="PRIIMEK" />
-                                    <TableColumn fx:id="tabStarost" text="STAROST" />
-                                    <TableColumn fx:id="tabSpol" prefWidth="84.0" text="SPOL" />
-                                    <TableColumn fx:id="tabEmail" prefWidth="145.0" text="EMAIL" />
-                                    <TableColumn fx:id="tabNaslov" prefWidth="150.0" text="NASLOV" />
-                                    <TableColumn fx:id="tabKartica" prefWidth="155.0" text="ZDRAVSTVENA KARTICA" />
+                                    <TableColumn fx:id="tabID" prefWidth="70.0" text="ID" />
+                                  <TableColumn fx:id="tabIme" prefWidth="117.0" text="IME" />
+                                  <TableColumn fx:id="tabPriimek" prefWidth="126.0" text="PRIIMEK" />
+                                    <TableColumn fx:id="tabStarost" prefWidth="75.0" text="STAROST" />
+                                    <TableColumn fx:id="tabSpol" prefWidth="67.0" text="SPOL" />
+                                    <TableColumn fx:id="tabEmail" prefWidth="134.0" text="EMAIL" />
+                                    <TableColumn fx:id="tabNaslov" prefWidth="126.0" text="NASLOV" />
+                                    <TableColumn fx:id="tabKartica" prefWidth="154.0" text="ZDRAVSTVENA KARTICA" />
                                 </columns>
                                  <BorderPane.margin>
                                     <Insets />

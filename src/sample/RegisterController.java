@@ -4,10 +4,7 @@ package sample;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
@@ -15,10 +12,8 @@ import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
-import javafx.stage.StageStyle;
 
 import java.io.File;
-import java.io.IOException;
 import java.net.URL;
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -53,9 +48,6 @@ public class RegisterController implements Initializable {
     @FXML
     private Button closeButton;
 
-
-
-
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         File shieldFile = new File("Files/icons8-login-as-user-90.png");
@@ -75,14 +67,10 @@ public class RegisterController implements Initializable {
         }
     }
 
-    public void closeCB(ActionEvent actionEvent) throws IOException {
+    public void closeCB(ActionEvent actionEvent) {
         Stage stage = (Stage) closeButton.getScene().getWindow();
         stage.close();
-
-        Parent root = FXMLLoader.load(getClass().getResource("login.fxml"));
-        LoginController.mainRegistrationStage.close();
-        Main.mainLoginStage.setScene(new Scene(root, 800, 500));
-        Main.mainLoginStage.show();
+        //Platform.exit();
     }
 
     public void registerUsser(){

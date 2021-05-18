@@ -1,6 +1,5 @@
 package sample;
 
-import com.mysql.cj.protocol.Resultset;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -48,10 +47,6 @@ public class LoginController implements Initializable {
     @FXML
     private ImageView lockimageView;
 
-
-    public static Stage mainRegistrationStage = new Stage();
-    public static Stage dashBoard = new Stage();
-
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         File brandingFile = new File("Files/2762370.png");
@@ -67,7 +62,7 @@ public class LoginController implements Initializable {
 
         // loginMessageLabble.setText("Invalid Login. Please try Again");
         if (usernameTextField.getText().isBlank()==false && passwordTextField.getText().isBlank()==false ){
-           validateLogin();
+            validateLogin();
             //loginMessageLabble.setText("You Try To Login");
         }else {
             loginMessageLabble.setText("Please enter username and passoword");
@@ -99,9 +94,9 @@ public class LoginController implements Initializable {
 
                     Parent root = FXMLLoader.load(getClass().getResource("Home.fxml"));
                     root.getStylesheets().add("sample/style.css");
+                    Stage dashBoard = new Stage();
                     dashBoard.setScene(new Scene(root));
                     //set stage borderless
-                    Main.mainLoginStage.close();
                     dashBoard.initStyle(StageStyle.UNDECORATED);
                     dashBoard.show();
 
@@ -120,16 +115,13 @@ public class LoginController implements Initializable {
     public void createAccountForm(){
 
         try{
+
             Parent root = FXMLLoader.load(getClass().getResource("register.fxml"));
             Stage registerStage = new Stage();
             //registerStage.setTitle("Hospital Assistant");
-            mainRegistrationStage.close();
-            Main.mainLoginStage.close();
-            //mainRegistrationStage.initStyle(StageStyle.UNDECORATED); //to jee problem biu
-            mainRegistrationStage.setResizable(false);
-            mainRegistrationStage.setScene(new Scene(root, 800, 500));
-            mainRegistrationStage.show();
-
+            registerStage.initStyle(StageStyle.UNDECORATED);
+            registerStage.setScene(new Scene(root, 800, 500));
+            registerStage.show();
 
         }catch (Exception e){
             e.printStackTrace();
