@@ -48,6 +48,7 @@ public class Home implements Initializable {
     public TextField pritisk;
     public TextArea zdravilo;
     public DatePicker datumPregleda;
+    public DatePicker danasnjiDatum;
     public TextField ime;
     public TextField priimek;
     public TextField starost;
@@ -59,7 +60,6 @@ public class Home implements Initializable {
     public Label pacientDodan;
     public Label pregledDodan;
 
-
     public TableView<Pacient> table;
 
     public TableColumn<Pacient, String> tabIme;
@@ -70,6 +70,7 @@ public class Home implements Initializable {
     public TableColumn<Pacient, String> tabNaslov;
     public TableColumn<Pacient, String> tabKartica;
     public TableColumn<Pacient, String> tabID;
+
 
     @FXML
     private Button odjavaButton;
@@ -183,7 +184,7 @@ public class Home implements Initializable {
     }
 
     public void resetCB(ActionEvent actionEvent) {
-        // tu je treba vse TextFielde dat na nula torej ustvari pacienta pa v prelged
+
         pacientID.clear();
         kisik.clear();
         srcniUtrip.clear();
@@ -198,6 +199,8 @@ public class Home implements Initializable {
         naslov.clear();
         zdravstvena.clear();
         datumPregleda.getEditor().clear();
+        danasnjiDatum.getEditor().clear();
+
     }
 
     public void saveCB(ActionEvent actionEvent) {
@@ -211,12 +214,12 @@ public class Home implements Initializable {
         String ugotovljenaDiagnoza = diagnoza.getText();
         String predpisanoZdravilo = zdravilo.getText();
         String datum = datumPregleda.getEditor().getText();
-
+        String datumDanes = danasnjiDatum.getEditor().getText();
 
         try{
 
-            String inserFields = "INSERT INTO `pregled` (`diagnoza`, `srcni_utrip`, `pritisk`, `kisik_v_krvi`, `zdravilo`, `datum_naslednjega_pregleda`, `pacient_id`) VALUES('";
-            String insertValues = ugotovljenaDiagnoza + "','" + pulz + "','" + pritiskPacient +  "','" +kisikVKrvi + "','" + predpisanoZdravilo + "','" + datum+ "','" + idPacient + "')";
+            String inserFields = "INSERT INTO `pregled` (`diagnoza`, `srcni_utrip`, `pritisk`, `kisik_v_krvi`, `zdravilo`, `datum_pregleda`,`datum_naslednjega_pregleda`, `pacient_id`) VALUES('";
+            String insertValues = ugotovljenaDiagnoza + "','" + pulz + "','" + pritiskPacient +  "','" +kisikVKrvi + "','" + predpisanoZdravilo + "','" +datumDanes + "','"  + datum +"','"+ idPacient + "')";
             String insertPacient = inserFields + insertValues;
 
             Statement statement2 = connectDB.createStatement();
