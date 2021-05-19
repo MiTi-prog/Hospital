@@ -18,7 +18,7 @@ https://youtu.be/xnBHpQN2RIE
 
 # SQL koda
 
-## USer Account
+## User Account
 
 ```
 CREATE TABLE `hospital_assistant`.`user_account` (
